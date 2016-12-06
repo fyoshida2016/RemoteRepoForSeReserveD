@@ -27,6 +27,17 @@ public class UserManager extends DataBaseManager{
 		return (User)getRecord(sql);
 	}
 
+	public String getUserName(int rid){
+		String sql = "";
+		sql += "Select * from UserInfo Where ";
+		sql += " RID = "+rid;
+
+		User result = (User)getRecord(sql);
+		String name= result.getName();
+		return name;
+	}
+
+
 	public User getUser(String loginName,String passWord){
 		String sql = "";
 		sql += "Select * from UserInfo Where ";

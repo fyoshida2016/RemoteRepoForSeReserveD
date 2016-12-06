@@ -41,4 +41,6 @@ public class ReservationManager extends DataBaseManager{
 		sql += " RID = "+rid;
 		return (Reservation)getRecord(sql);
 	}
+
+
 }
