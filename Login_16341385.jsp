@@ -11,7 +11,7 @@
 <body>
 <center>
 
-会議室予約システム
+会議室予約システム(山村)
 
 <form method="POST" action="LoginServlet" >
 
