@@ -101,5 +101,20 @@ public class UserManagerTest {
 
 	}
 
+	@Test
+	public void RIDで指定されたユーザの名前を読み込む() {
+		// データベースにテストデータを挿入
+		TestDataBase db=new TestDataBase();
+		db.setTestData("./testdata/story09/dbaccess_test.xls");
+
+		// データベースからオブジェクトを読み込み
+		UserManager um=new UserManager();
+		String userName=um.getUserName(1);
+
+		// 読み込んだ名前が適切かどうかをチェック
+		assertThat(userName,is("Mr.x"));
+
+	}
+
 }
 

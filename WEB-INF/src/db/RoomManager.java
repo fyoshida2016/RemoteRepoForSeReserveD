@@ -7,10 +7,9 @@ import common.DataBaseManager;
 import model.Room;
 import model.User;
 
+public class RoomManager extends DataBaseManager {
 
-public class RoomManager extends DataBaseManager{
-
-	protected Object copyRecord(ResultSet rs) throws Exception{
+	protected Object copyRecord(ResultSet rs) throws Exception {
 		Room room = new Room();
 		room.setRid(rs.getInt("RID"));
 		room.setName(rs.getString("Name").trim());
@@ -30,17 +29,33 @@ public class RoomManager extends DataBaseManager{
 		return room;
 	}
 
-	public Room getRoom(int rid){
+	public Room getRoom(int rid) {
 		String sql = "";
 		sql += "Select * from RoomInfo Where ";
-		sql += " RID = "+ rid;
-		return (Room)getRecord(sql);
+		sql += " RID = " + rid;
+		return (Room) getRecord(sql);
 	}
 
-	public LinkedList<Room> getRooms(){
+	public String getRoomName(int rid) {
+		String sql = "";
+		sql += "Select * from RoomInfo Where ";
+		sql += " RID = " + rid;
+		System.out.println(sql);
+
+		Room result = (Room) getRecord(sql);
+
+		String roomResult = result.getBuildingName() + result.getFloor() + "階" + result.getRoomNumber() + "号";
+
+		System.out.println(roomResult);
+
+		return roomResult;
+
+	}
+
+	public LinkedList<Room> getRooms() {
 		String sql = "";
 		sql += "Select * from RoomInfo";
 
-		return (LinkedList<Room>)getRecords(sql);
+		return (LinkedList<Room>) getRecords(sql);
 	}
 }
