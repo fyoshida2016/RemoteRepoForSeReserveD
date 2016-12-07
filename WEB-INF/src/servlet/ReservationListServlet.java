@@ -13,38 +13,8 @@ import javax.servlet.http.HttpSession;
 import db.ReservationManager;
 import db.UserManager;
 import model.Reservation;
-<<<<<<< HEAD
-
-@WebServlet(name = "ReservationServlet", urlPatterns = { "/ReservationServlet" })
-public class ReservationListServlet extends HttpServlet {
-
-	public void doGet(HttpServletRequest req, HttpServletResponse res)
-			throws ServletException, IOException {
-		doMain(req, res);
-	}
-
-	public void doPost(HttpServletRequest req, HttpServletResponse res)
-			throws ServletException, IOException {
-		doMain(req, res);
-	}
-
-	public void doMain(HttpServletRequest req, HttpServletResponse res)
-			throws ServletException, IOException {
-
-		req.setCharacterEncoding("UTF-8");
-		res.setContentType("text/html; charset=UTF-8");
-
-		ReservationManager rm=new ReservationManager();
-		LinkedList<Reservation> reservations=rm.getReservations();
-
-		req.setAttribute("Reservations", reservations);
-		req.getRequestDispatcher("ReservationList.jsp").forward(req, res);
 
 
-	}
-}
-=======
-import model.User;
 
 @WebServlet(name = "ReservationListServlet", urlPatterns = { "/ReservationListServlet" })
 public class ReservationListServlet extends HttpServlet {
@@ -74,4 +44,4 @@ public class ReservationListServlet extends HttpServlet {
 
 	}
 }
->>>>>>> refs/heads/story09_db
+
