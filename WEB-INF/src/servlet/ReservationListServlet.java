@@ -34,11 +34,12 @@ public class ReservationListServlet extends HttpServlet {
 
 		req.setCharacterEncoding("UTF-8");
 		res.setContentType("text/html; charset=UTF-8");
+		HttpSession session = req.getSession();
 
 		ReservationManager rm=new ReservationManager();
 		LinkedList<Reservation> reservations=rm.getReservations();
 
-		req.setAttribute("Reservations", reservations);
+		session.setAttribute("Reservations", reservations);
 		req.getRequestDispatcher("ReservationList.jsp").forward(req, res);
 
 
