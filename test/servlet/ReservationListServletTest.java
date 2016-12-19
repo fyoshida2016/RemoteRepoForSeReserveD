@@ -30,9 +30,9 @@ public class ReservationListServletTest extends TestServlet {
 
 
 		// RequestにReservationオブジェクトが保存されていること（nullではないこと）を確認
-		assertThat(request.getAttribute("Reservations"),is(notNullValue()));
+		assertThat(session.getAttribute("Reservations"),is(notNullValue()));
 		// RequestからUserオブジェクトを読み込み
-		LinkedList<Reservation> reservations=(LinkedList<Reservation>)request.getAttribute("Reservations");
+		LinkedList<Reservation> reservations=(LinkedList<Reservation>)session.getAttribute("Reservations");
 
 		// 読み込んだリストに登録されているユーザ数をチェック
 		assertThat(reservations.size(),is(2));
