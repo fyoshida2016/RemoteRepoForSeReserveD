@@ -72,6 +72,22 @@ public class RoomManagerTest {
 	}
 
 	@Test
+	public void 存在するRIDを指定して会議室名を読み込む() {
+		// データベースにテストデータを挿入
+		TestDataBase db=new TestDataBase();
+		db.setTestData("./testdata/story09/dbaccess_test.xls");
+
+		// 登録済みの部屋情報をデータベースから読み込み
+		RoomManager rm=new RoomManager();
+		String roomName=rm.getRoomName(1);
+
+		// 読み込んだオブジェクトのプロパティの値が適切かどうかをチェック
+		assertThat(roomName,is("物質・材料経営情報棟2階208号"));
+	}
+
+
+
+	@Test
 	public void 存在しないRIDを指定して会議室を読み込む_1() {
 		// データベースにテストデータを挿入
 		TestDataBase db=new TestDataBase();

@@ -41,4 +41,13 @@ public class ReservationManager extends DataBaseManager{
 		sql += " RID = "+rid;
 		return (Reservation)getRecord(sql);
 	}
+
+	public LinkedList<Reservation> getReservations(){
+		String sql = "";
+		sql += "Select * from ReservationInfo";
+
+		return (LinkedList<Reservation>)getRecords(sql);
+	}
+
+
 }
